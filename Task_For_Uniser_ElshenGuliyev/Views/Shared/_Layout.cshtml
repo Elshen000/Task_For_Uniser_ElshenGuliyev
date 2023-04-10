@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/owlcarousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>TaskForUniser</title>
+</head>
+
+<body>
+
+    <!-- HEADER START -->
+
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg d-flex d-lg-block justify-content-between d-xl-flex navbar-light py-3 py-lg-0">
+                        <a style="background-color:black;" class="navbar-brand" asp-controller="Home" asp-action="Index">
+                            <img  src="~/img/uniserlogo.png" style="width:200px;height:50px;" alt="" id="logo">
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation" id="mobile-navbar-show">
+                            <span class="navbar-toggler-icon" style="font-size: 12px;"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse d-none d-lg-block" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Home" asp-action="Index">Ana Səhifə</a>
+                                    
+                                </li>
+                                 <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Products" asp-action="Index">Məhsullar</a>
+                                    
+                                </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" asp-controller="Categories" asp-action="Index">Kateqoriyalar</a>
+                                    
+                                </li>
+
+                               
+                                
+                                
+                            </ul>
+                        </div>
+
+                    </nav>
+                </div>
+            </div>
+            <div class="mobile-navbar position-absolute shadow-lg h-100 p-5">
+                <i class="fas fa-times fa-lg" id="mobile-navbar-close"></i>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home <i class="fas fa-caret-right fa-sm"></i></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- HEADER END -->
+            @RenderBody()
+        <!-- FOOTER START -->
+
+    <footer>
+        <div class="container">
+            <div class="row py-5">
+              @*  <div class="col-md-6 col-lg-3">
+                    <div class="item">
+                        <h6>CUSTOMER SERVICE</h6>
+                        <ul class="list-unstyled mt-4">
+                            <li><a class="text-black-50" >Help & Contact Us</a></li>
+                            <li><a class="text-black-50" >Returns & Refunds</a></li>
+                            <li><a class="text-black-50" >Online Stores</a></li>
+                            <li><a class="text-black-50" >Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="item">
+                        <h6>COMPANY</h6>
+                        <ul class="list-unstyled mt-4">
+                            <li><a class="text-black-50" >About Us</a></li>
+                            <li><a class="text-black-50" >Blog</a></li>
+                            <li><a class="text-black-50" >Order Tracking</a></li>
+                            <li><a class="text-black-50" >FAQ Page</a></li>
+                            <li><a class="text-black-50" >Contact Us</a></li>
+                            <li><a class="text-black-50" >Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="item">
+                        <h6>SOCIAL MEDIA</h6>
+                        <ul class="list-unstyled mt-4">
+                            <li><a class="text-black-50" >Twitter</a></li>
+                            <li><a class="text-black-50" >Instagram</a></li>
+                            <li><a class="text-black-50" >Tumblr</a></li>
+                            <li><a class="text-black-50" >Pinterest</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="item">
+                        <h6>ARCHIVE</h6>
+                        <ul class="list-unstyled mt-4">
+                            <li><a class="text-black-50" >Designer Shoes</a></li>
+                            <li><a class="text-black-50" >Gallery</a></li>
+                            <li><a class="text-black-50" >Pricing</a></li>
+                            <li><a class="text-black-50" >Feature Index</a></li>
+                            <li><a class="text-black-50" >Login</a></li>
+                            <li><a class="text-black-50" >Help & Support</a></li>
+                        </ul>
+                    </div>
+                </div>*@
+            </div>
+
+            <hr>
+
+            <div class="row py-2">
+                <div class=" col-lg-4 text-center text-lg-left">
+                    <p class="text-black-50">Powered by <a class="author text-muted"
+                            href="https://www.uniser.az">Elshen Guliyev</a> 2023</p>
+                </div>
+                <div class=" col-lg-4 text-center">
+                    TaskForUniser
+                </div>
+                <div class=" col-lg-4 text-center text-lg-right mt-3 mt-lg-0">
+                    <a class="text-black-50 mr-5"
+                        href="https://www.linkedin.com/company/nargiz-huseinova-32968923a/">LINKEDIN</a
+                        class="text-black-50">
+                    <a class="text-black-50" href="https://www.facebook.com/search/top?q=uniser%20group%20mmc">FACEBOOK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FOOTER END -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e5e249fce2.js" crossorigin="anonymous"></script>
+    <script src="~/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/js/script.js"></script>
+    <script src="~/js/JavaScript.js"></script>
+    @RenderSection("Scripts",false)
+</body>
+
+</html>

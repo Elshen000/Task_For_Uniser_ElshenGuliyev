@@ -1,0 +1,83 @@
+﻿@model List<Category>
+    <main>
+    <section id="shop-list-title">
+        <div class="container py-4">
+            <div class="row py-5">
+                <div class="col-12">
+                    <h1>Məhsullar</h1>
+                </div>
+            </div>
+            <div>
+
+                <a class="btn btn-primary rounded-pill" asp-controller="Categories" asp-action="Create">Yeni kateqoriya yarat</a>
+
+            </div>
+
+
+        </div>
+    </section>
+
+    <section id="shop-list">
+        <div class="container">
+            <div class="row py-5" >
+
+                <table class="table" style="margin:120px;margin-block-end:50px;">
+                    <thead>
+                        <tr>
+                            <th>
+                                Ad
+                            </th>
+                            <th>
+                                Məhsul sayı
+                            </th>
+                            <th>
+                                Parametrlər
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="myCats">
+                        @foreach (Category item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Name
+                                </td>
+
+                                @if (item.Products.Count() > 0)
+                                {
+                                    <td>
+                                        @item.Products.Count()
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        Məhsul yoxdur
+                                    </td>
+                                }
+                                <td>
+                                    <a asp-controller="Categories" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger rounded-pill">Delete </a>
+
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+               
+            </div>
+        </div>
+    </section>
+    <div class="row justify-content-center align-content text-center my-5">
+        <input type="hidden" value="@ViewBag.CategoriesCount" id="categoriesCount" />
+        <a class="btn btn-outline-success" id="LoadMore">
+            Daha Çox
+        </a>
+    </div>
+    </main>
+    
+
+
+
+

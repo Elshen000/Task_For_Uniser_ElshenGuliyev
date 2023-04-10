@@ -1,0 +1,13 @@
+﻿@model Category
+<form style="margin:150px;" method="post" enctype="multipart/form-data">
+   
+    <div class="form-group">
+        <label for="exampleInputEmail1">Ad</label>
+        <input style="width:50%;" asp-for="@Model.Name" class="form-control" aria-describedby="emailHelp">
+        <span class="text-danger" asp-validation-for="@Model.Name"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Yarat</button>
+    <button asp-action="Index" class="btn btn-primary">Geri</button>
+
+</form>

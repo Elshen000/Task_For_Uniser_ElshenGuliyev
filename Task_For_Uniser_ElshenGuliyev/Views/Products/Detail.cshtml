@@ -1,0 +1,113 @@
+﻿@model Product
+
+<div class="my-3 d-flex justify-content-center" style="padding:30px;">
+    <div class="col-lg-8 border p-3 main-section bg-white">
+        <div class="row hedding m-0 pl-3 pt-0 pb-3">
+            <h3>Product</h3>
+        </div>
+        <div class="row m-0">
+
+            <div class="col-lg-8">
+                <div class="right-side-pro-detail border p-3 m-0">
+                    <div class="justify-content-lg-end">
+                        <div class="my-images d-flex flex-wrap">
+                            @if (Model.ProductImages.Count() != 1)
+                            {
+                                @foreach (ProductImage productImage in Model.ProductImages)
+                                {
+                                    <div class="d-flex flex-column" style="margin:5px;">
+                                        <img style="width:150px;height:150px;object-fit:cover;margin-bottom:5px;" src="~/img/@productImage.Image" />
+                                        <a class="btn btn-danger text-white rounded-pill del-images">Delete</a>
+                                        <input type="hidden" value="@productImage.Id" />
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                @foreach (ProductImage productImage in Model.ProductImages)
+                                {
+                                    <div class="d-flex flex-column" style="margin:5px;">
+                                        <img style="width:150px;height:150px;object-fit:cover;margin-bottom:5px;" src="~/img/@productImage.Image" />
+                                    </div>
+                                }
+                            }
+
+                        </div>
+                        <div class="col-lg-12">
+                            <h5 class="m-0 p-0">Ad</h5>
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="m-0 p-0 price-pro">@Model.Name</p>
+                            <hr class="p-0 m-0">
+                        </div>
+                        <div class="col-lg-12">
+                            <h5 class="m-0 p-0">Qiymət</h5>
+                        </div>
+                        <div class="col-lg-12">
+                            <p class="m-0 p-0 price-pro">@Model.ProductDetail.Price AZN</p>
+                            <hr class="p-0 m-0">
+                        </div>
+                       
+                        <div class="col-lg-12 pt-2">
+                            <h5>Haqqında</h5>
+                            <span>
+                                @Model.ProductDetail.Description
+                            </span>
+                            <hr class="m-0 pt-2 mt-2">
+                        </div>
+                        <div class="col-lg-12 pt-2">
+                            <h5>Kateqoriya</h5>
+                            <span>
+                                @Model.Category.Name
+                            </span>
+                            <hr class="m-0 pt-2 mt-2">
+                        </div>
+                        <div class="col-lg-12">
+                            <h5>Yaranma tarixi</h5>
+                            <p class="m-0 p-0 price-pro">@Model.ProductDetail.CreateTime.ToString("dd/MM/yyyy HH:mm")</p>
+                            <hr class="p-0 m-0">
+                        </div>
+
+
+                        
+                        <div class="col-lg-12 mt-3">
+                            <div class="row">
+                                <div  class="col-lg-6">
+                                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary w-100">Geri</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+
+        $(document).on('click', '.del-images', function () {
+            let clickedButton = $(this)
+            $.ajax({
+                url: "/Products/DeleteProductImage/",
+                type: "GET",
+                data: {
+                    "imgId": clickedButton.next().val(),
+                    "count": $('.del-images').length
+                },
+                success: function (res) {
+                    if (res != "error") {
+                        clickedButton.parent().remove()
+                        if ($('.del-images').length == 1) {
+                            $('.del-images').remove()
+                        }
+                    }
+
+                }
+            })
+        })
+    </script>
+
+}

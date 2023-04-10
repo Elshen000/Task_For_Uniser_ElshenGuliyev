@@ -1,0 +1,27 @@
+﻿@model List<Product>
+@foreach (Product product in Model)
+{
+    <div class="col-sm-6 col-md-4 col-lg-3 mt-3">
+        <div class="product-item product-item-small text-center" data-id="popular">
+            <div class="img">
+                <a asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id">
+                    <img src="~/img/@product.ProductImages.FirstOrDefault().Image" class="img-fluid" alt="">
+                </a>
+            </div>
+            <div class="overlay d-flex flex-column justify-content-center">
+                <div class="title mt-3">
+                    <h6>@product.Name</h6>
+                </div>
+                <div class="price">
+                    <span class="text-black-50">@product.ProductDetail.Price AZN</span>
+                </div>
+                
+
+            </div>
+        </div>
+        <div class="button mt-3">
+            <a class="btn btn-danger rounded-0" asp-controller="Products" asp-action="Detail" asp-route-id="@product.Id">Detail</a>
+        </div>
+    </div>
+}
+
